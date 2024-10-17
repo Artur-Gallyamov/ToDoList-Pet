@@ -1,0 +1,147 @@
+@font-face {
+  font-family: "PT Sans";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local("PT Sans"),
+       url("../fonts/ptsans-400.woff2") format("woff2"),
+       url("../fonts/ptsans-400.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Sans";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: local("PT Sans Bold"),
+       url("../fonts/ptsans-700.woff2") format("woff2"),
+       url("../fonts/ptsans-700.woff") format("woff");
+}
+
+.page {
+  height: 100%;
+}
+
+.page-body {
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.page-header {
+  font-family: "PT Sans", sans-serif;
+  font-size: 24px;
+  background: linear-gradient(to right, rgb(0, 118, 255), rgb(130, 220, 255));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  margin: 20px 120px;
+}
+
+.page-main {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task-list-block {
+  font-family: "PT Sans", sans-serif;
+  font-size: 18px;
+  padding: 0 25px;
+  flex: 2;
+  box-shadow: 5px 0 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.task-list {
+  margin-left: 0;
+  padding-left: 0;
+  word-break: break-all;
+}
+
+.task-list-title {
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  color: rgb(100, 100, 100);
+  border-bottom: 2px solid rgb(60, 120, 205);
+}
+
+.task-list-unit {
+  list-style-type: none;
+  padding: 20px 10px;
+  border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.task-list-unit:hover {
+  box-shadow: 0 0 3px 2px rgba(60, 120, 205, .2);
+  background-color: #fafafa;
+}
+
+.add-task-block {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 25px 25px;
+}
+
+.input-text {
+  flex: 1;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border-color: rgb(110, 170, 255);
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.input-text:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.add-task-button {
+  background-color: rgb(110, 170, 255);
+  padding: 12px 12px 9px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  vertical-align: bottom;
+}
+
+.add-task-button:focus {
+  outline: none;
+}
+
+.add-task-button:hover {
+  background-color: rgb(90, 150, 255);
+}
+
+.add-task-button:active {
+  background-color: rgb(120, 180, 255);
+  box-shadow: inset 0 3px 3px rgba(0, 0, 0, .5);
+}
+
+.page-footer {
+  background: linear-gradient(to right, rgb(10, 123, 250), rgb(130, 220, 255));
+  font-family: "PT Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.footer-autor-sign {
+  margin-right: 80px;
+}
