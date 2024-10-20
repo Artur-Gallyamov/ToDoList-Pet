@@ -75,7 +75,26 @@
   border-bottom: 2px solid rgb(60, 120, 205);
 }
 
+.list-empty-message {
+  text-transform: uppercase;
+  margin-left: 15px;
+}
+
+.list-empty {
+  color: rgb(180, 220, 255);
+  margin-top: 300px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.paper-icon {
+  padding-top: 7px;
+}
+
 .task-list-unit {
+  display: flex;
+  align-items: center;
   list-style-type: none;
   padding: 20px 10px;
   border-bottom: 1px solid rgb(225, 225, 225);
@@ -83,7 +102,47 @@
 
 .task-list-unit:hover {
   box-shadow: 0 0 3px 2px rgba(60, 120, 205, .2);
-  background-color: #fafafa;
+  background-color: #f0f0f0;
+}
+
+.task-text {
+  padding: 2px;
+  margin: 0;
+}
+
+.task-delete-button {
+  padding: 0;
+  border: none;
+  margin-left: auto;
+  display: none;
+}
+
+.delete-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.delete-icon:active {
+  margin-right: 1px;
+  height: 22px;
+  width: 22px;
+}
+
+.delete-icon:hover path {
+  stroke: rgb(50, 100, 175);
+}
+
+.delete-icon:hover {
+  outline: 2px solid rgb(90, 140, 235, 0.3);
+  border-radius: 3px;
+}
+
+.delete-icon:active path {
+  stroke: rgb(90, 140, 235);
+}
+
+.task-list-unit:hover .task-delete-button{
+  display: block;
 }
 
 .add-task-block {
@@ -144,4 +203,8 @@
 
 .footer-autor-sign {
   margin-right: 80px;
+}
+
+.none {
+  display: none !important;
 }
