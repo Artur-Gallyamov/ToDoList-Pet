@@ -82,10 +82,10 @@
 
 .list-empty {
   color: rgb(180, 220, 255);
-  margin-top: 300px;
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 30%;
 }
 
 .paper-icon {
@@ -163,10 +163,6 @@
 
 .input-text:focus {
   outline: none;
-}
-
-.input-text:hover {
-  background-color: rgb(226, 226, 226);
 }
 
 .add-task-button {

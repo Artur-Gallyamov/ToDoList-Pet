@@ -1,46 +1,37 @@
 const inputText = document.querySelector('.input-text');
 const addTaskButton = document.querySelector('.add-task-button');
 const taskList = document.querySelector('.task-list');
-const templateFragment = document.querySelector('#element-template').content;
-const template = templateFragment.querySelector('li');
+const template = document.querySelector('#element-template').content.querySelector('li');
 const emptyTaskList = document.querySelector('.list-empty');
-const fragment = document.createDocumentFragment();
 
-function taskListEmpty() {
-  if (taskList.children.length > 0) {
-    emptyTaskList.classList.add('none');
-  } else {
-    emptyTaskList.classList.remove('none');
-  }
-};
-
-const addTask = function(cb) {
+const addTask = function(text) {
   const element = template.cloneNode(true);
-  element.children[0].textContent = cb;
+  element.querySelector('.task-text').textContent = text;
 
-  fragment.appendChild(element)
-  taskList.appendChild(fragment)
-  taskListEmpty();
+  taskList.appendChild(element)
+  if (taskList.children.length === 1) {
+    emptyTaskList.classList.toggle('none');
+  }
 };
 
 addTaskButton.onclick = function() {
-  let taskText = inputText.value;
-  if (taskText === '') {
-    inputText.focus();
-    return;
-  } else {
+  const taskText = inputText.value;
+  if (taskText !== '') {
     addTask(taskText);
   }
+
   inputText.value = '';
   inputText.focus();
 };
 
 function deleteTask(evt) {
-  if(evt.target.closest('.task-delete-button')) {
-    let parentNode = evt.target.closest('.task-list-unit')
-    parentNode.remove();
+  const taskDeleteButton = evt.target.closest('.task-delete-button');
+  if(taskDeleteButton) {
+    taskDeleteButton.closest('.task-list-unit').remove();
   }
-  taskListEmpty();
+  if (taskList.children.length === 0) {
+    emptyTaskList.classList.toggle('none');
+  }
 };
 
 taskList.addEventListener('click', deleteTask);
