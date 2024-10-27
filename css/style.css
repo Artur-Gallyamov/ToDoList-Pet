@@ -151,14 +151,27 @@
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 25px 25px;
+  margin-bottom: auto;
 }
 
 .input-text {
   flex: 1;
+  width: auto;
   font-size: 18px;
   padding: 10px;
   border-radius: 5px 0 0 5px;
   border-color: rgb(110, 170, 255);
+}
+
+.error-empty-input {
+  background-color: rgb(255, 150, 150, 0.1);
+  border-color: rgb(255, 150, 150);
+}
+
+.error-input-message {
+  text-transform: initial;
+  color:rgb(255, 75, 75);
+  margin: 5px 0;
 }
 
 .input-text:focus {
@@ -202,5 +215,5 @@
 }
 
 .none {
-  display: none !important;
+  display: none;
 }
