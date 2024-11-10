@@ -4,6 +4,7 @@ const taskList = document.querySelector('.task-list');
 const template = document.querySelector('#element-template').content.querySelector('li');
 const emptyTaskList = document.querySelector('.list-empty');
 const errorMessageToInput = document.querySelector('.error-input-message');
+const taskFilter = document.querySelector('.status-filter');
 
 function updateTaskListState() {
   emptyTaskList.classList.toggle('none', taskList.children.length > 0)
@@ -12,6 +13,9 @@ function updateTaskListState() {
 const addTask = function(text) {
   const element = template.cloneNode(true);
   element.querySelector('.task-text').textContent = text;
+  if (taskFilter.value === 'completed-task') {
+    element.classList.add('none');
+  }
 
   taskList.appendChild(element)
   updateTaskListState()
@@ -42,4 +46,27 @@ function deleteTask(evt) {
   updateTaskListState()
 };
 
-taskList.addEventListener('click', deleteTask);
+function completeTask(evt) {
+  const taskCompleteButton = evt.target.closest('.task-complete-button');
+  if(taskCompleteButton) {
+    taskCompleteButton.closest('.task-list-unit').classList.toggle('none', taskFilter.value === 'active-task' || taskFilter.value === 'completed-task');
+    taskCompleteButton.closest('.task-list-unit').classList.toggle('active');
+    taskCompleteButton.closest('.task-list-unit').classList.toggle('completed');
+    taskCompleteButton.closest('.task-list-unit').querySelector('.completed-task-message').classList.toggle('none');
+  }
+  updateTaskListState()
+};
+
+taskFilter.onchange = function filterChange() {
+  const tasks = taskList.querySelectorAll('.task-list-unit');
+  for (let task of tasks) {
+    if (task.classList.contains('completed') && taskFilter.value !== 'active-task' || task.classList.contains('active') && taskFilter.value !== 'completed-task') {
+      task.classList.remove('none')
+    } else {
+      task.classList.add('none')
+    }
+  }
+};
+
+taskList.addEventListener('click', function(evt) {deleteTask(evt); completeTask(evt)});
+
