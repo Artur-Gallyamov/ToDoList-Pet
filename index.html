@@ -14,7 +14,14 @@
     </header>
     <main class="page-main">
       <div class="task-list-block">
-        <h2 class="task-list-title">Список задач</h2>
+        <div class="task-list-title-block">
+          <h2 class="task-list-title">Список задач</h2>
+          <select class="status-filter" name="status-filter">
+            <option value="active-task" selected>Активные задачи</option>
+            <option value="completed-task">Выполненные задачи</option>
+            <option value="all-task">Все задачи</option>
+          </select>
+        </div>
         <ul class="task-list">
         </ul>
         <div class="list-empty">
@@ -43,8 +50,17 @@
 
     <!-- Шаблон задачи -->
     <template id="element-template">
-      <li class="task-list-unit">
+      <li class="task-list-unit active">
+        <p class="completed-task-message none">Задача выполнена!</p>
         <p class="task-text"></p>
+        <button class="task-complete-button" type="submit">
+          <svg class="completed-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Check--Streamline-Sharp.svg" height="24" width="24">
+            <desc>Check Streamline Icon: https://streamlinehq.com</desc>
+            <g id="check--check-form-validation-checkmark-success-add-addition-tick">
+              <path id="Vector 2356" stroke="rgb(80, 130, 225)" d="m1.5 12.5 7 7 14 -14" stroke-width="1.5"></path>
+            </g>
+            </svg>
+        </button>
         <button class="task-delete-button" type="submit">
           <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Recycle-Bin-2--Streamline-Sharp.svg" height="24" width="24">
             <desc>Recycle Bin 2 Streamline Icon: https://streamlinehq.com</desc>
